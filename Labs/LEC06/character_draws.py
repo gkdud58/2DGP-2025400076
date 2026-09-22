@@ -14,7 +14,7 @@ def move_circle():
         delay(0.01)
 
 def move_rectangle():
-    #move_top()
+    move_top()
     move_right()
 
 
