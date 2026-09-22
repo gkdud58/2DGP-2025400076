@@ -11,7 +11,7 @@ def move_circle():
         clear_canvas()
         boy.draw(x, y)
         update_canvas()
-        delay(0.1)
+        delay(0.01)
 
 def move_rectangle():
     move_top()
@@ -20,22 +20,19 @@ def move_rectangle():
     move_left()
 
 def move_triangle():
-    print('triangle')
+    three_point(400, 550, 50, 50, 750, 50)
 
 
 
 
 
 
-
+# ******사각형관련함수******
 def draw_boy(x, y):
     clear_canvas()
     boy.draw(x, y)
     update_canvas()
-    delay(0.1)
-
-
-
+    delay(0.01) # 0에 가까워질수록 빠르게 움직임
 
 
 def move_top():
@@ -51,12 +48,24 @@ def move_left():
     for y in range(50, 551, 5):
         draw_boy(50, y)
 
+
+## ******삼각형관련함수******
+def three_point(x1, y1, x2, y2, x3, y3):
+    clear_canvas()
+    boy.draw(x1, y1)
+    boy.draw(x2, y2)
+    boy.draw(x3, y3)
+    update_canvas()
+    delay(0.01)
+
+
+
 open_canvas(800, 600)
 boy = load_image('character.png')
 
 while True:
-    move_circle()
-    move_rectangle()
-    #move_triangle()
+    #move_circle()
+    #move_rectangle()
+    move_triangle()
 
 close_canvas()
