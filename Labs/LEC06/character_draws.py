@@ -31,17 +31,13 @@ def draw_boy(x, y):
 
 
 def move_top():
-    for x in range(50, 751, 5):
-        draw_boy(x, 550)
+    move_line(50, 550, 750, 550)
 def move_right():
-    for y in range(550, 49, -5):
-        draw_boy(750, y)
+    move_line(750, 550, 750, 50)
 def move_bottom():
-    for x in range(750, 49, -5):
-        draw_boy(x, 50)
+    move_line(750, 50, 50, 50)
 def move_left():
-    for y in range(50, 551, 5):
-        draw_boy(50, y)
+    move_line(50, 50, 50, 550)
 
 
 ## ******삼각형관련함수******
