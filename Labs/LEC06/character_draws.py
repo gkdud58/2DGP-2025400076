@@ -73,6 +73,7 @@ while True:
     move_circle()
     move_line(CENTER_X + RADIUS, CENTER_Y, LEFT, TOP, speed=20)  # 원 끝점 → 네모 시작점 (빠르게)
     move_rectangle()
+    move_line(LEFT, TOP, CENTER_X, TOP, speed=20)  # 네모 끝점 → 세모 시작점 (빠르게)
     move_triangle()
 
 close_canvas()
