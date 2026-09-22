@@ -16,6 +16,7 @@ def move_circle():
 def move_rectangle():
     move_top()
     move_right()
+    move_bottom()
 
 
 def move_triangle():
@@ -43,7 +44,9 @@ def move_top():
 def move_right():
     for y in range(550, 50, -5):
         draw_boy(750, y)
-
+def move_bottom():
+    for x in range(750, 49, -5):
+        draw_boy(x, 50)
 
 
 open_canvas(800, 600)
