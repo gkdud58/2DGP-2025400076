@@ -71,6 +71,7 @@ boy = load_image('character.png')
 
 while True:
     move_circle()
+    move_line(CENTER_X + RADIUS, CENTER_Y, LEFT, TOP, speed=20)  # 원 끝점 → 네모 시작점 (빠르게)
     move_rectangle()
     move_triangle()
 
