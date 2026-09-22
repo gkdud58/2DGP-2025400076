@@ -51,15 +51,11 @@ def move_left():
     for y in range(50, 551, 5):
         draw_boy(50, y)
 
-
-
-
 open_canvas(800, 600)
 boy = load_image('character.png')
 
-
 while True:
-    #move_circle()
+    move_circle()
     move_rectangle()
     #move_triangle()
 
