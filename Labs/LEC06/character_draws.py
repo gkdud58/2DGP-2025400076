@@ -17,8 +17,8 @@ def move_rectangle():
 
 def move_triangle():
     move_tri_left()
+    move_tri_bottom()
     move_tri_right()
-    move_tri_top()
 
 
 
@@ -52,9 +52,9 @@ def move_line(x1, y1, x2, y2):
 
 def move_tri_left():  
     move_line(400, 550, 50, 50)
-def move_tri_right():
+def move_tri_bottom():
     move_line(50, 50, 750, 50)
-def move_tri_top():
+def move_tri_right():
     move_line(750, 50, 400, 550)
 
 
