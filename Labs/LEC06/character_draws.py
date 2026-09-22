@@ -2,11 +2,14 @@
 from pico2d import *
 import math
 
+CENTER_X, CENTER_Y = 400, 300  # 원운동 중심
+RADIUS = 200                   # 원운동 반지름
+
 def move_circle():
     for degree in range(360):
         theta = math.radians(degree)
-        x = 400 + 200 * math.cos(theta)
-        y = 300 + 200 * math.sin(theta)
+        x = CENTER_X + RADIUS * math.cos(theta)
+        y = CENTER_Y + RADIUS * math.sin(theta)
         draw_boy(x, y)
 
 def move_rectangle():
