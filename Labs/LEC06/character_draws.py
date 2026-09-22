@@ -11,7 +11,7 @@ def move_circle():
         clear_canvas()
         boy.draw(x, y)
         update_canvas()
-        delay(0.01)
+        delay(0.001)
 
 def move_rectangle():
     move_top()
@@ -32,7 +32,7 @@ def draw_boy(x, y):
     clear_canvas()
     boy.draw(x, y)
     update_canvas()
-    delay(0.01)
+    delay(0.001)
 
 
 
