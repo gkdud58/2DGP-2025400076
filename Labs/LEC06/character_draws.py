@@ -4,6 +4,8 @@ import math
 
 CENTER_X, CENTER_Y = 400, 300  # 원운동 중심
 RADIUS = 200                   # 원운동 반지름
+LEFT, RIGHT = 50, 750          # 네모/세모 좌우 끝
+BOTTOM, TOP = 50, 550          # 네모/세모 위아래 끝
 
 def move_circle():
     for degree in range(360):
@@ -34,13 +36,13 @@ def draw_boy(x, y):
 
 
 def move_top():
-    move_line(50, 550, 750, 550)
+    move_line(LEFT, TOP, RIGHT, TOP)
 def move_right():
-    move_line(750, 550, 750, 50)
+    move_line(RIGHT, TOP, RIGHT, BOTTOM)
 def move_bottom():
-    move_line(750, 50, 50, 50)
+    move_line(RIGHT, BOTTOM, LEFT, BOTTOM)
 def move_left():
-    move_line(50, 50, 50, 550)
+    move_line(LEFT, BOTTOM, LEFT, TOP)
 
 
 ## ******삼각형관련함수******
@@ -53,12 +55,12 @@ def move_line(x1, y1, x2, y2):
         y = y1 + (y2 - y1) * t
         draw_boy(x, y)
 
-def move_tri_left():  
-    move_line(400, 550, 50, 50)
+def move_tri_left():
+    move_line(CENTER_X, TOP, LEFT, BOTTOM)
 def move_tri_bottom():
-    move_line(50, 50, 750, 50)
+    move_line(LEFT, BOTTOM, RIGHT, BOTTOM)
 def move_tri_right():
-    move_line(750, 50, 400, 550)
+    move_line(RIGHT, BOTTOM, CENTER_X, TOP)
 
 
 
