@@ -14,19 +14,30 @@ def move_circle():
         delay(0.01)
 
 def move_rectangle():
-    print('rectangle')
+    move_top()
 
 
 def move_triangle():
     print('triangle')
+
+
+def draw_boy(x, y):
+    clear_canvas()
+    boy.draw(x, y)
+    update_canvas()
+    delay(0.01)
+
+def move_top():
+    for x in range(50, 751, 5):
+        draw_boy(x, 550)
 
 open_canvas(800, 600)
 boy = load_image('character.png')
 
 
 while True:
-    move_circle()
-    # move_rectangle()
-    # move_triangle()
+    #move_circle()
+    move_rectangle()
+    #move_triangle()
 
 close_canvas()
