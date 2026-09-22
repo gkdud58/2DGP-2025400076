@@ -20,8 +20,7 @@ def move_rectangle():
     move_left()
 
 def move_triangle():
-    three_point(400, 550, 50, 50, 750, 50)
-
+    move_line(400, 500, 700, 100)
 
 
 
@@ -50,13 +49,14 @@ def move_left():
 
 
 ## ******삼각형관련함수******
-def three_point(x1, y1, x2, y2, x3, y3):
-    clear_canvas()
-    boy.draw(x1, y1)
-    boy.draw(x2, y2)
-    boy.draw(x3, y3)
-    update_canvas()
-    delay(0.01)
+def move_line(x1, y1, x2, y2):
+    # 점 (x1, y1)에서 점 (x2, y2)까지 직선으로 이동
+    steps = 100
+    for i in range(steps + 1):
+        t = i / steps
+        x = x1 + (x2 - x1) * t
+        y = y1 + (y2 - y1) * t
+        draw_boy(x, y)
 
 
 
