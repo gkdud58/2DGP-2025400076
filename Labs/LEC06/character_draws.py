@@ -28,7 +28,15 @@ def move_triangle():
 
 
 # ******사각형관련함수******
+def handle_events():
+    # ESC 키 또는 창 닫기 버튼을 누르면 프로그램 종료
+    for event in get_events():
+        if event.type == SDL_QUIT or (event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE):
+            close_canvas()
+            exit()
+
 def draw_boy(x, y):
+    handle_events()
     clear_canvas()
     boy.draw(x, y)
     update_canvas()
