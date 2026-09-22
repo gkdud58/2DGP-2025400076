@@ -23,15 +23,10 @@ def move_triangle():
 open_canvas(800, 600)
 boy = load_image('character.png')
 
-clear_canvas()
-boy.draw(400, 300)
-update_canvas()
-delay(1)
-close_canvas()
-
 
 while True:
     move_circle()
-    move_rectangle()
-    move_triangle()
-    pass
+    # move_rectangle()
+    # move_triangle()
+
+close_canvas()
