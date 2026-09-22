@@ -46,9 +46,10 @@ def move_left():
 
 
 ## ******삼각형관련함수******
-def move_line(x1, y1, x2, y2):
-    # 점 (x1, y1)에서 점 (x2, y2)까지 직선으로 이동
-    steps = 100
+def move_line(x1, y1, x2, y2, speed=5):
+    # 점 (x1, y1)에서 점 (x2, y2)까지 직선으로 이동 (speed: 프레임당 이동 픽셀)
+    distance = math.hypot(x2 - x1, y2 - y1)
+    steps = max(1, int(distance / speed))
     for i in range(steps + 1):
         t = i / steps
         x = x1 + (x2 - x1) * t
