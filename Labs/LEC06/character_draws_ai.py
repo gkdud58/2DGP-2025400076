@@ -27,6 +27,5 @@ def move_circle():
 open_canvas(WIDTH, HEIGHT)
 character = load_image(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'character.png'))
 
-move_circle()
-
-close_canvas()
+while True:
+    move_circle()
