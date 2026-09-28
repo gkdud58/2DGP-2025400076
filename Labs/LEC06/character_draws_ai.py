@@ -1,5 +1,7 @@
 from pico2d import *
 
-open_canvas(800, 600)
+WIDTH, HEIGHT = 800, 600
+
+open_canvas(WIDTH, HEIGHT)
 
 close_canvas()
