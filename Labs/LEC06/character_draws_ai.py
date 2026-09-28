@@ -45,6 +45,7 @@ def move_rectangle():
 def move_triangle():
     move_line(WIDTH // 2, TOP, RIGHT, BOTTOM)
     move_line(RIGHT, BOTTOM, LEFT, BOTTOM)
+    move_line(LEFT, BOTTOM, WIDTH // 2, TOP)
 
 
 open_canvas(WIDTH, HEIGHT)
