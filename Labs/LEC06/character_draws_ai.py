@@ -3,6 +3,7 @@ import math
 import os
 
 WIDTH, HEIGHT = 800, 600
+SPEED = 5
 FRAME_DELAY = 0.01
 
 CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
@@ -20,7 +21,7 @@ def draw_character(x, y):
 
 
 def move_line(x1, y1, x2, y2):
-    steps = int(math.hypot(x2 - x1, y2 - y1) / 5)
+    steps = int(math.hypot(x2 - x1, y2 - y1) / SPEED)
     for i in range(steps):
         t = i / steps
         draw_character(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t)
