@@ -16,8 +16,9 @@ TRIANGLE = [(WIDTH // 2, TOP), (RIGHT, BOTTOM), (LEFT, BOTTOM)]
 
 
 def handle_events():
+    # ESC 키 또는 창 닫기 버튼을 누르면 종료
     for event in get_events():
-        if event.type == SDL_QUIT:
+        if event.type == SDL_QUIT or (event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE):
             close_canvas()
             exit()
 
