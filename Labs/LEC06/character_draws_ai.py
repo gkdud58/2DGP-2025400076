@@ -24,8 +24,15 @@ def move_circle():
                        CENTER_Y + RADIUS * math.sin(theta))
 
 
+def move_rectangle():
+    # 위쪽 변: 왼쪽 → 오른쪽
+    for x in range(50, 750, 5):
+        draw_character(x, 550)
+
+
 open_canvas(WIDTH, HEIGHT)
 character = load_image(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'character.png'))
 
 while True:
     move_circle()
+    move_rectangle()
