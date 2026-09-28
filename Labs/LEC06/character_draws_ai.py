@@ -3,15 +3,18 @@ import math
 import os
 
 WIDTH, HEIGHT = 800, 600
-SPEED = 5
+SPEED = 5          # 직선 이동 시 프레임당 이동 픽셀
 FRAME_DELAY = 0.01
 
+# 원운동
 CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
 RADIUS = 200
 
+# 사각운동 (좌우/위아래 끝)
 LEFT, RIGHT = 50, WIDTH - 50
 BOTTOM, TOP = 50, HEIGHT - 50
 
+# 삼각운동 (꼭짓점: 위, 오른쪽 아래, 왼쪽 아래)
 TRIANGLE = [(WIDTH // 2, TOP), (RIGHT, BOTTOM), (LEFT, BOTTOM)]
 
 
