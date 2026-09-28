@@ -28,6 +28,9 @@ def move_rectangle():
     # 위쪽 변: 왼쪽 → 오른쪽
     for x in range(50, 750, 5):
         draw_character(x, 550)
+    # 오른쪽 변: 위 → 아래
+    for y in range(550, 50, -5):
+        draw_character(750, y)
 
 
 open_canvas(WIDTH, HEIGHT)
