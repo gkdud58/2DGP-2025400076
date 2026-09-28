@@ -42,9 +42,14 @@ def move_rectangle():
     move_line(LEFT, BOTTOM, LEFT, TOP)
 
 
+def move_triangle():
+    move_line(WIDTH // 2, TOP, RIGHT, BOTTOM)
+
+
 open_canvas(WIDTH, HEIGHT)
 character = load_image(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'character.png'))
 
 while True:
     move_circle()
     move_rectangle()
+    move_triangle()
