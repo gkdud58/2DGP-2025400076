@@ -8,6 +8,9 @@ FRAME_DELAY = 0.01
 CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
 RADIUS = 200
 
+LEFT, RIGHT = 50, WIDTH - 50
+BOTTOM, TOP = 50, HEIGHT - 50
+
 
 def draw_character(x, y):
     clear_canvas()
@@ -26,17 +29,17 @@ def move_circle():
 
 def move_rectangle():
     # 위쪽 변: 왼쪽 → 오른쪽
-    for x in range(50, 750, 5):
-        draw_character(x, 550)
+    for x in range(LEFT, RIGHT, 5):
+        draw_character(x, TOP)
     # 오른쪽 변: 위 → 아래
-    for y in range(550, 50, -5):
-        draw_character(750, y)
+    for y in range(TOP, BOTTOM, -5):
+        draw_character(RIGHT, y)
     # 아래쪽 변: 오른쪽 → 왼쪽
-    for x in range(750, 50, -5):
-        draw_character(x, 50)
+    for x in range(RIGHT, LEFT, -5):
+        draw_character(x, BOTTOM)
     # 왼쪽 변: 아래 → 위
-    for y in range(50, 550, 5):
-        draw_character(50, y)
+    for y in range(BOTTOM, TOP, 5):
+        draw_character(LEFT, y)
 
 
 open_canvas(WIDTH, HEIGHT)
