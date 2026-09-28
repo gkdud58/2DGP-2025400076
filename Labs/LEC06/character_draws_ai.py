@@ -5,6 +5,9 @@ import os
 WIDTH, HEIGHT = 800, 600
 FRAME_DELAY = 0.01
 
+CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
+RADIUS = 200
+
 
 def draw_character(x, y):
     clear_canvas()
@@ -16,8 +19,8 @@ def draw_character(x, y):
 def move_circle():
     for degree in range(0, 360, 2):
         theta = math.radians(degree)
-        draw_character(400 + 200 * math.cos(theta),
-                       300 + 200 * math.sin(theta))
+        draw_character(CENTER_X + RADIUS * math.cos(theta),
+                       CENTER_Y + RADIUS * math.sin(theta))
 
 
 open_canvas(WIDTH, HEIGHT)
