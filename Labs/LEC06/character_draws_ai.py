@@ -12,6 +12,8 @@ RADIUS = 200
 LEFT, RIGHT = 50, WIDTH - 50
 BOTTOM, TOP = 50, HEIGHT - 50
 
+TRIANGLE = [(WIDTH // 2, TOP), (RIGHT, BOTTOM), (LEFT, BOTTOM)]
+
 
 def draw_character(x, y):
     clear_canvas()
@@ -43,9 +45,10 @@ def move_rectangle():
 
 
 def move_triangle():
-    move_line(WIDTH // 2, TOP, RIGHT, BOTTOM)
-    move_line(RIGHT, BOTTOM, LEFT, BOTTOM)
-    move_line(LEFT, BOTTOM, WIDTH // 2, TOP)
+    (x1, y1), (x2, y2), (x3, y3) = TRIANGLE
+    move_line(x1, y1, x2, y2)
+    move_line(x2, y2, x3, y3)
+    move_line(x3, y3, x1, y1)
 
 
 open_canvas(WIDTH, HEIGHT)
