@@ -2,13 +2,14 @@ from pico2d import *
 import os
 
 WIDTH, HEIGHT = 800, 600
+FRAME_DELAY = 0.01
 
 
 def draw_character(x, y):
     clear_canvas()
     character.draw(x, y)
     update_canvas()
-    delay(0.01)
+    delay(FRAME_DELAY)
 
 
 open_canvas(WIDTH, HEIGHT)
