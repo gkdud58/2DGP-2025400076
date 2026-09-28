@@ -32,7 +32,7 @@ def draw_character(x, y):
 
 
 def move_line(x1, y1, x2, y2):
-    steps = int(math.hypot(x2 - x1, y2 - y1) / SPEED)
+    steps = max(1, int(math.hypot(x2 - x1, y2 - y1) / SPEED))
     for i in range(steps):
         t = i / steps
         draw_character(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t)
