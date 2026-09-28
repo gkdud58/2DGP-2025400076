@@ -29,6 +29,13 @@ def move_line(x1, y1, x2, y2):
         draw_character(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t)
 
 
+def move_polygon(points):
+    for i in range(len(points)):
+        x1, y1 = points[i]
+        x2, y2 = points[(i + 1) % len(points)]
+        move_line(x1, y1, x2, y2)
+
+
 def move_circle():
     # 원의 맨 아래(270도)에서 시작해 반시계 방향으로 한 바퀴
     for degree in range(270, 270 + 360, 2):
