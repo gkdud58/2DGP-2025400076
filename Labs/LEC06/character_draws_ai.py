@@ -1,4 +1,5 @@
 from pico2d import *
+import math
 import os
 
 WIDTH, HEIGHT = 800, 600
@@ -12,10 +13,16 @@ def draw_character(x, y):
     delay(FRAME_DELAY)
 
 
+def move_circle():
+    for degree in range(0, 360, 2):
+        theta = math.radians(degree)
+        draw_character(400 + 200 * math.cos(theta),
+                       300 + 200 * math.sin(theta))
+
+
 open_canvas(WIDTH, HEIGHT)
 character = load_image(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'character.png'))
 
-draw_character(WIDTH // 2, HEIGHT // 2)
-delay(1)
+move_circle()
 
 close_canvas()
