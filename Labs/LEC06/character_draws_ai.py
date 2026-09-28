@@ -15,7 +15,15 @@ BOTTOM, TOP = 50, HEIGHT - 50
 TRIANGLE = [(WIDTH // 2, TOP), (RIGHT, BOTTOM), (LEFT, BOTTOM)]
 
 
+def handle_events():
+    for event in get_events():
+        if event.type == SDL_QUIT:
+            close_canvas()
+            exit()
+
+
 def draw_character(x, y):
+    handle_events()
     clear_canvas()
     character.draw(x, y)
     update_canvas()
