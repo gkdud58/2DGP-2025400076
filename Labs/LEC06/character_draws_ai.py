@@ -35,18 +35,10 @@ def move_circle():
 
 
 def move_rectangle():
-    # 위쪽 변: 왼쪽 → 오른쪽
-    for x in range(LEFT, RIGHT, 5):
-        draw_character(x, TOP)
-    # 오른쪽 변: 위 → 아래
-    for y in range(TOP, BOTTOM, -5):
-        draw_character(RIGHT, y)
-    # 아래쪽 변: 오른쪽 → 왼쪽
-    for x in range(RIGHT, LEFT, -5):
-        draw_character(x, BOTTOM)
-    # 왼쪽 변: 아래 → 위
-    for y in range(BOTTOM, TOP, 5):
-        draw_character(LEFT, y)
+    move_line(LEFT, TOP, RIGHT, TOP)
+    move_line(RIGHT, TOP, RIGHT, BOTTOM)
+    move_line(RIGHT, BOTTOM, LEFT, BOTTOM)
+    move_line(LEFT, BOTTOM, LEFT, TOP)
 
 
 open_canvas(WIDTH, HEIGHT)
