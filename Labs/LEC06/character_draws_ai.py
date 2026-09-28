@@ -49,10 +49,7 @@ def move_rectangle():
 
 
 def move_triangle():
-    (x1, y1), (x2, y2), (x3, y3) = TRIANGLE
-    move_line(x1, y1, x2, y2)
-    move_line(x2, y2, x3, y3)
-    move_line(x3, y3, x1, y1)
+    move_polygon(TRIANGLE)
 
 
 open_canvas(WIDTH, HEIGHT)
