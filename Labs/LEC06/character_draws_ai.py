@@ -45,10 +45,7 @@ def move_circle():
 
 
 def move_rectangle():
-    move_line(LEFT, TOP, RIGHT, TOP)
-    move_line(RIGHT, TOP, RIGHT, BOTTOM)
-    move_line(RIGHT, BOTTOM, LEFT, BOTTOM)
-    move_line(LEFT, BOTTOM, LEFT, TOP)
+    move_polygon([(LEFT, TOP), (RIGHT, TOP), (RIGHT, BOTTOM), (LEFT, BOTTOM)])
 
 
 def move_triangle():
