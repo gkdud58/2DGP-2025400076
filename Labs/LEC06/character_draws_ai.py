@@ -35,6 +35,7 @@ def draw_character(x, y):
 
 
 def move_line(x1, y1, x2, y2):
+    # (x1, y1)에서 (x2, y2)까지 직선 이동
     steps = max(1, int(math.hypot(x2 - x1, y2 - y1) / SPEED))
     for i in range(steps):
         t = i / steps
@@ -42,6 +43,7 @@ def move_line(x1, y1, x2, y2):
 
 
 def move_polygon(points):
+    # 꼭짓점을 차례로 이어 한 바퀴 이동
     for i in range(len(points)):
         x1, y1 = points[i]
         x2, y2 = points[(i + 1) % len(points)]
