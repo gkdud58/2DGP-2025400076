@@ -17,7 +17,8 @@ def draw_character(x, y):
 
 
 def move_circle():
-    for degree in range(0, 360, 2):
+    # 원의 맨 아래(270도)에서 시작해 반시계 방향으로 한 바퀴
+    for degree in range(270, 270 + 360, 2):
         theta = math.radians(degree)
         draw_character(CENTER_X + RADIUS * math.cos(theta),
                        CENTER_Y + RADIUS * math.sin(theta))
