@@ -70,7 +70,10 @@ ACTIONS = [
     },
 ]
 
-open_canvas(1200, 800)
+CANVAS_W, CANVAS_H = 1200, 800
+CENTER_X, CENTER_Y = CANVAS_W // 2, CANVAS_H // 2  # 캐릭터를 그릴 캔버스 중앙 좌표
+
+open_canvas(CANVAS_W, CANVAS_H)
 
 sprite_sheet = load_image('sonic-sprite.png')
 
@@ -93,7 +96,7 @@ for _ in range(frame_count * 2):  # 두 바퀴 돌려서 순환이 되는지 확
 
     clear_canvas()
     sprite_sheet.clip_draw(frame_x, test_bottom, frame_w, frame_h,
-                            600, 400, frame_w * ZOOM, frame_h * ZOOM)
+                            CENTER_X, CENTER_Y, frame_w * ZOOM, frame_h * ZOOM)
     update_canvas()
     delay(0.1)
 
