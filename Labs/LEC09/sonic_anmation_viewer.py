@@ -84,22 +84,22 @@ def to_bottom(action):
 
 ZOOM = 6  # 화면 대비 캐릭터가 잘 보이도록 확대할 배율
 
-# walk 동작의 프레임 인덱스를 0~N-1로 순환시키며 재생 (프레임 전환은 delay로 조절)
-test_action = ACTIONS[0]
-test_bottom = to_bottom(test_action)
-frame_count = len(test_action["frames"])
+# 두 번째 동작(walk_fast)도 같은 방식으로 좌표가 맞는지 테스트
+for test_action in ACTIONS[:2]:
+    test_bottom = to_bottom(test_action)
+    frame_count = len(test_action["frames"])
 
-frame_index = 0
-for _ in range(frame_count * 2):  # 두 바퀴 돌려서 순환이 되는지 확인
-    frame_x, frame_w = test_action["frames"][frame_index]
-    frame_h = test_action["frame_h"]
+    frame_index = 0
+    for _ in range(frame_count):  # 동작별로 한 바퀴씩 확인
+        frame_x, frame_w = test_action["frames"][frame_index]
+        frame_h = test_action["frame_h"]
 
-    clear_canvas()
-    sprite_sheet.clip_draw(frame_x, test_bottom, frame_w, frame_h,
-                            CENTER_X, CENTER_Y, frame_w * ZOOM, frame_h * ZOOM)
-    update_canvas()
-    delay(0.1)
+        clear_canvas()
+        sprite_sheet.clip_draw(frame_x, test_bottom, frame_w, frame_h,
+                                CENTER_X, CENTER_Y, frame_w * ZOOM, frame_h * ZOOM)
+        update_canvas()
+        delay(0.1)
 
-    frame_index = (frame_index + 1) % frame_count
+        frame_index = (frame_index + 1) % frame_count
 
 close_canvas()
