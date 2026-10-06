@@ -99,6 +99,15 @@ MOVE_LEFT_X = 150  # 이동하는 동작의 시작 x좌표
 MOVE_RIGHT_X = CANVAS_W - 150  # 이동하는 동작의 끝 x좌표
 
 
+def handle_events():
+    # ESC 키, Q 키 또는 창 닫기 버튼을 누르면 프로그램 종료 (F7)
+    for event in get_events():
+        if (event.type == SDL_QUIT or
+                (event.type == SDL_KEYDOWN and event.key in (SDLK_ESCAPE, SDLK_q))):
+            close_canvas()
+            exit()
+
+
 def play_action(action):
     """동작 하나의 프레임 시퀀스를 REPEAT_COUNT번 반복 재생한다.
     moves가 True인 동작(걷기/달리기류)은 한 바퀴 재생될 때마다
@@ -115,6 +124,7 @@ def play_action(action):
             else:
                 draw_x = CENTER_X
 
+            handle_events()
             clear_canvas()
             sprite_sheet.clip_draw(frame_x, bottom, frame_w, frame_h,
                                     draw_x, CENTER_Y, frame_w * ZOOM, frame_h * ZOOM)
