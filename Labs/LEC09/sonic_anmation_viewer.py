@@ -74,8 +74,18 @@ open_canvas(1200, 800)
 
 sprite_sheet = load_image('sonic-sprite.png')
 
+# clip_draw는 bottom(아래쪽 기준) 좌표를 쓰므로, 위에서부터 잰 y(ACTIONS["y"])를
+# 이미지 전체 높이 기준 bottom 좌표로 변환한다.
+def to_bottom(action):
+    return sprite_sheet.h - action["y"] - action["frame_h"]
+
+# 1번째 동작(walk)의 1번째 프레임만 잘라서 그려 좌표가 맞는지 확인
+test_action = ACTIONS[0]
+test_x, test_w = test_action["frames"][0]
+test_bottom = to_bottom(test_action)
+
 clear_canvas()
-sprite_sheet.draw(600, 400)
+sprite_sheet.clip_draw(test_x, test_bottom, test_w, test_action["frame_h"], 600, 400)
 update_canvas()
 delay(2)
 
