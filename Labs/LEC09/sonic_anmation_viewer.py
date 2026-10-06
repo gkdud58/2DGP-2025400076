@@ -124,8 +124,7 @@ def play_action(action):
     delay(1)  # 동작 하나의 반복 재생이 끝나면 1초 정지
 
 
-# 모든 동작을 순서대로 한 바퀴 재생 (F1)
-for action in ACTIONS:
-    play_action(action)
-
-close_canvas()
+# 모든 동작을 순서대로 재생하고, 끝까지 재생되면 처음부터 다시 반복 (F1, F5)
+while True:
+    for action in ACTIONS:
+        play_action(action)
