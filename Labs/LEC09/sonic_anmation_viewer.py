@@ -84,23 +84,24 @@ def to_bottom(action):
 
 ZOOM = 6  # 화면 대비 캐릭터가 잘 보이도록 확대할 배율
 FRAME_DELAY = 0.1  # 프레임 전환 간격(초)
+REPEAT_COUNT = 5  # 동작별 반복 재생 횟수
 
 
 def play_action(action):
-    """동작 하나의 프레임 시퀀스를 한 바퀴 재생한다."""
+    """동작 하나의 프레임 시퀀스를 REPEAT_COUNT번 반복 재생한다."""
     bottom = to_bottom(action)
     frame_h = action["frame_h"]
 
-    for frame_x, frame_w in action["frames"]:
-        clear_canvas()
-        sprite_sheet.clip_draw(frame_x, bottom, frame_w, frame_h,
-                                CENTER_X, CENTER_Y, frame_w * ZOOM, frame_h * ZOOM)
-        update_canvas()
-        delay(FRAME_DELAY)
+    for _ in range(REPEAT_COUNT):
+        for frame_x, frame_w in action["frames"]:
+            clear_canvas()
+            sprite_sheet.clip_draw(frame_x, bottom, frame_w, frame_h,
+                                    CENTER_X, CENTER_Y, frame_w * ZOOM, frame_h * ZOOM)
+            update_canvas()
+            delay(FRAME_DELAY)
 
 
-# 첫 두 동작으로 play_action 동작 확인
-for action in ACTIONS[:2]:
-    play_action(action)
+# 첫 번째 동작으로 5회 반복 재생이 잘 되는지 확인
+play_action(ACTIONS[0])
 
 close_canvas()
