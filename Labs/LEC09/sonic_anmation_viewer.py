@@ -83,23 +83,24 @@ def to_bottom(action):
     return sprite_sheet.h - action["y"] - action["frame_h"]
 
 ZOOM = 6  # 화면 대비 캐릭터가 잘 보이도록 확대할 배율
+FRAME_DELAY = 0.1  # 프레임 전환 간격(초)
 
-# 두 번째 동작(walk_fast)도 같은 방식으로 좌표가 맞는지 테스트
-for test_action in ACTIONS[:2]:
-    test_bottom = to_bottom(test_action)
-    frame_count = len(test_action["frames"])
 
-    frame_index = 0
-    for _ in range(frame_count):  # 동작별로 한 바퀴씩 확인
-        frame_x, frame_w = test_action["frames"][frame_index]
-        frame_h = test_action["frame_h"]
+def play_action(action):
+    """동작 하나의 프레임 시퀀스를 한 바퀴 재생한다."""
+    bottom = to_bottom(action)
+    frame_h = action["frame_h"]
 
+    for frame_x, frame_w in action["frames"]:
         clear_canvas()
-        sprite_sheet.clip_draw(frame_x, test_bottom, frame_w, frame_h,
+        sprite_sheet.clip_draw(frame_x, bottom, frame_w, frame_h,
                                 CENTER_X, CENTER_Y, frame_w * ZOOM, frame_h * ZOOM)
         update_canvas()
-        delay(0.1)
+        delay(FRAME_DELAY)
 
-        frame_index = (frame_index + 1) % frame_count
+
+# 첫 두 동작으로 play_action 동작 확인
+for action in ACTIONS[:2]:
+    play_action(action)
 
 close_canvas()
