@@ -112,6 +112,7 @@ def play_action(action):
     """동작 하나의 프레임 시퀀스를 REPEAT_COUNT번 반복 재생한다.
     moves가 True인 동작(걷기/달리기류)은 한 바퀴 재생될 때마다
     화면 왼쪽에서 오른쪽으로 수평 이동하는 것처럼 보이게 그린다."""
+    print(f"PLAY: {action['name']}")
     bottom = to_bottom(action)
     frame_h = action["frame_h"]
     frame_count = len(action["frames"])
