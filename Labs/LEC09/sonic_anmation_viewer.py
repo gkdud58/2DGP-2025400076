@@ -83,20 +83,23 @@ ACTIONS = [
 CANVAS_W, CANVAS_H = 1200, 800
 CENTER_X, CENTER_Y = CANVAS_W // 2, CANVAS_H // 2  # 캐릭터를 그릴 캔버스 중앙 좌표
 
+ZOOM = 6  # 화면 대비 캐릭터가 잘 보이도록 확대할 배율
+FRAME_DELAY = 0.1  # 프레임 전환 간격(초)
+REPEAT_COUNT = 5  # 동작별 반복 재생 횟수
+PAUSE_AFTER_ACTION = 1  # 동작 하나의 반복 재생이 끝난 뒤 정지 시간(초)
+MOVE_MARGIN = 150  # 이동하는 동작이 화면 좌우 끝에서 띄우는 여백
+MOVE_LEFT_X = MOVE_MARGIN  # 이동하는 동작의 시작 x좌표
+MOVE_RIGHT_X = CANVAS_W - MOVE_MARGIN  # 이동하는 동작의 끝 x좌표
+
 open_canvas(CANVAS_W, CANVAS_H)
 
 sprite_sheet = load_image('sonic-sprite.png')
+
 
 # clip_draw는 bottom(아래쪽 기준) 좌표를 쓰므로, 위에서부터 잰 y(ACTIONS["y"])를
 # 이미지 전체 높이 기준 bottom 좌표로 변환한다.
 def to_bottom(action):
     return sprite_sheet.h - action["y"] - action["frame_h"]
-
-ZOOM = 6  # 화면 대비 캐릭터가 잘 보이도록 확대할 배율
-FRAME_DELAY = 0.1  # 프레임 전환 간격(초)
-REPEAT_COUNT = 5  # 동작별 반복 재생 횟수
-MOVE_LEFT_X = 150  # 이동하는 동작의 시작 x좌표
-MOVE_RIGHT_X = CANVAS_W - 150  # 이동하는 동작의 끝 x좌표
 
 
 def handle_events():
@@ -132,7 +135,7 @@ def play_action(action):
             update_canvas()
             delay(FRAME_DELAY)
 
-    delay(1)  # 동작 하나의 반복 재생이 끝나면 1초 정지
+    delay(PAUSE_AFTER_ACTION)
 
 
 # 모든 동작을 순서대로 재생하고, 끝까지 재생되면 처음부터 다시 반복 (F1, F5)
