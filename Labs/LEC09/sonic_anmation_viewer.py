@@ -121,8 +121,10 @@ def play_action(action):
             update_canvas()
             delay(FRAME_DELAY)
 
+    delay(1)  # 동작 하나의 반복 재생이 끝나면 1초 정지
 
-# 첫 번째 동작으로 5회 반복 재생이 잘 되는지 확인
+
+# 첫 번째 동작으로 5회 반복 재생 + 1초 정지가 잘 되는지 확인
 play_action(ACTIONS[0])
 
 close_canvas()
