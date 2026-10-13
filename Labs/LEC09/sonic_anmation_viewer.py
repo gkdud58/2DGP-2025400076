@@ -7,7 +7,7 @@ ACTIONS = [
         "name": "walk",
         "y": 39,
         "frame_h": 39,
-        "moves": True,
+        "moves": False,
         "frames": [(1, 29), (31, 26), (58, 28), (86, 30), (118, 30), (150, 30),
                    (182, 29), (211, 29), (240, 30), (270, 24), (302, 29)],
     },
@@ -98,8 +98,8 @@ CENTER_X, CENTER_Y = CANVAS_W // 2, CANVAS_H // 2  # 캐릭터를 그릴 캔버�
 
 ZOOM = 6  # 화면 대비 캐릭터가 잘 보이도록 확대할 배율
 FRAME_DELAY = 0.1  # 프레임 전환 간격(초)
-REPEAT_COUNT = 5  # 동작별 반복 재생 횟수
-PAUSE_AFTER_ACTION = 1  # 동작 하나의 반복 재생이 끝난 뒤 정지 시간(초)
+REPEAT_COUNT = 1  # 동작별 반복 재생 횟수
+PAUSE_AFTER_ACTION = 0.3  # 동작 하나의 반복 재생이 끝난 뒤 정지 시간(초)
 MOVE_MARGIN = 150  # 이동하는 동작이 화면 좌우 끝에서 띄우는 여백
 MOVE_LEFT_X = MOVE_MARGIN  # 이동하는 동작의 시작 x좌표
 MOVE_RIGHT_X = CANVAS_W - MOVE_MARGIN  # 이동하는 동작의 끝 x좌표

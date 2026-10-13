@@ -6,11 +6,18 @@ character = load_image('animation_sheet.png')
 
 
 # fill here
-
+running = True # 힙 저장
 
 
 def handle_events():
     # fill here
+    global running
+    events = get_events()
+    for event in events:
+        if event.type == SDL_QUIT:
+            running = False # 스택 저장
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            running = False
     pass
 
 
