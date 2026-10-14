@@ -23,10 +23,11 @@ class Ball:
         self.image = load_image('ball21x21.png')
 
     def update(self):
+        maxy = 550
         speed = random.randint(1, 15)
         self.frame = 0
         if self.y > 550 :
-            self.y = 550
+            self.y -= 100
         else :
             self.y += speed
 
