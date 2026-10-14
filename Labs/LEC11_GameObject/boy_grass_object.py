@@ -20,7 +20,7 @@ class Ball:
         self.x = random.randint(100, 700)
         self.y = 90
         self.frame = 0
-        self.image = load_image('ball21x21.png')
+        self.image = load_image('ball41x41.png')
 
     def update(self):
         maxy = 550
