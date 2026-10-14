@@ -23,11 +23,13 @@ class Ball:
         self.image = load_image('ball21x21.png')
 
     def update(self):
+        speed = random.randint(1, 15)
         self.frame = 0
-        self.y += 5
+        self.y += speed
 
     def draw(self):
-        self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
+        size = random.randint(10, 100)
+        self.image.clip_draw(self.frame * size, 0, size, size, self.x, self.y)
 
 
 class Boy:
@@ -79,7 +81,7 @@ def reset_world():
 
     # 팀을 생성, wolrd리스트에 추가
     running = True
-    balls = [Ball() for i in range(10)]
+    balls = [Ball() for i in range(20)]
     world += balls
     team = [Boy() for i in range(10)]
     world += team
